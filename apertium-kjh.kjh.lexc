@@ -60,6 +60,7 @@ Multichar_Symbols
 %{G%}             ! 
 %{D%}             !
 %{Z%}             ! 
+%{J%}             ! 
 
 %{A%}             ! 
 %{I%}             ! 
@@ -109,11 +110,22 @@ CASES-COMMON ;
 %<abl%>:%>%{D%}%{A%}н CLITICS-INCL-COP ;
 %<loc%>:%>%{D%}%{A%} CLITICS-INCL-COP ;
 %<all%>:%>%{Z%}%{A%}р CLITICS-INCL-COP ;
+!%<peq%>:%>%{J%}%{A%} CLITICS-INCL-COP ;
+
+LEXICON ATTR-SUBST
+
+%<attr%>: # ;
+%<subst%>: CASES ;
+%<subst%>%<pl%>:%>%{L%}%{A%}р CASES ;
+
+LEXICON GENERAL-POSSESSIVE-ETC
+
+%<loc%>:%>%{D%}%{A%}%{G%}%{I%} ATTR-SUBST ;
 
 LEXICON CASES-ETC
 
 CASES ;
-!GENERAL-POSSESSIVE-ETC ;
+GENERAL-POSSESSIVE-ETC ;
 
 LEXICON POSSESSIVES
 
@@ -153,6 +165,9 @@ LEXICON A1
 
 %<adj%>: # ; 
 
+LEXICON A4
+
+%<adj%>: # ; 
 
 LEXICON V-IV 
 
@@ -360,6 +375,8 @@ LEXICON ProperNouns
 Николай:Николай NP-ANT-M ; ! "Николай"
 
 LEXICON Adjectives 
+
+чох:чох A4 ; ! "нет"
 
 хара:хара A1 ; ! "черный"
 
