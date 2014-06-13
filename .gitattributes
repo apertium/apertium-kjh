@@ -1,1 +1,13 @@
 * text=auto !eol
+/AUTHORS -text
+/COPYING -text
+/ChangeLog -text
+/Makefile.am -text
+/NEWS -text
+/README -text
+/apertium-kjh.kjh.lexc -text
+/apertium-kjh.kjh.rlx -text
+/apertium-kjh.kjh.twol -text
+/apertium-kjh.pc.in -text
+/autogen.sh -text
+/configure.ac -text
