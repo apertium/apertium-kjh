@@ -11,6 +11,7 @@ Multichar_Symbols
 %<det%>           !
 %<num%>           !
 %<adj%>           !
+%<v%>             !
 
 
 %<sg%>            !
@@ -35,6 +36,8 @@ Multichar_Symbols
 %<p2%>            !
 %<p3%>            !
 
+%<iv%>            !
+%<tv%>            !
 
 %<attr%>          !
 %<subst%>         !
@@ -78,6 +81,7 @@ Determiners ;
 Nouns ; 
 ProperNouns ;
 Adjectives ; 
+Verbs ; 
 
 Punctuation ;
 
@@ -149,6 +153,11 @@ LEXICON A1
 
 %<adj%>: # ; 
 
+
+LEXICON V-IV 
+
+%<v%>%<iv%>: # ; 
+
 LEXICON PRON-PERS-12SG 
 
 %<nom%>: # ; 
@@ -179,8 +188,6 @@ LEXICON PRON-PERS-OL
 ол%<prn%>%<pers%>%<p3%>%<sg%>%<all%>:аныңзар # ; 
 ол%<prn%>%<pers%>%<p3%>%<sg%>%<ins%>:аннаң # ; 
 
-
-
 LEXICON PRON-DEM-PU 
 
 пу%<prn%>%<dem%>%<nom%>:пу # ; 
@@ -192,7 +199,6 @@ LEXICON PRON-DEM-PU
 пу%<prn%>%<dem%>%<all%>:пузар # ; 
 пу%<prn%>%<dem%>%<all%>:мындар # ;  ! Dir/LR
 пу%<prn%>%<dem%>%<ins%>:мынынаң # ; 
-
 
 LEXICON DET-DEM
 
@@ -356,6 +362,10 @@ LEXICON ProperNouns
 LEXICON Adjectives 
 
 хара:хара A1 ; ! "черный"
+
+LEXICON Verbs 
+
+пол:пол V-IV ; ! "быть"
 
 LEXICON Punctuation 
 

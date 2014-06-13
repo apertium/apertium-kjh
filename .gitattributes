@@ -11,3 +11,4 @@
 /apertium-kjh.pc.in -text
 /autogen.sh -text
 /configure.ac -text
+dev/countstems.sh -text
