@@ -108,7 +108,7 @@ LEXICON CASES
 
 CASES-COMMON ;
 %<nom%>: CLITICS-INCL-COP ;
-%<abl%>:%>%{D%}%{A%}н CLITICS-INCL-COP ;
+%<abl%>:%>%{D%}%{A%}ң CLITICS-INCL-COP ;
 %<loc%>:%>%{D%}%{A%} CLITICS-INCL-COP ;
 %<all%>:%>%{Z%}%{A%}р CLITICS-INCL-COP ;
 !%<peq%>:%>%{J%}%{A%} CLITICS-INCL-COP ;
@@ -154,13 +154,22 @@ LEXICON N1
 %<n%>%<attr%>: # ;
 %<n%>: FULL-NOMINAL-INFLECTION ;
 
+LEXICON NP-COMMON
+
+FULL-NOMINAL-INFLECTION ;
+
 LEXICON NP-TOP 
 
-%<np%>%<top%>: # ;
+%<np%>%<top%>: NP-COMMON ;
 
 LEXICON NP-ANT-M 
 
 %<np%>%<ant%>%<m%>: # ;
+
+LEXICON NP-ANT-F
+
+%<np%>%<ant%>%<f%>: # ;
+
 
 LEXICON A1 
 
@@ -366,6 +375,8 @@ LEXICON Nouns
 интернат:интернат N1 ; ! "интернат"
 класс:класс N1 ; ! "класс"
 
+министерство:министерство N1 ; ! "министерство"
+
 хабар:хабар N1 ; ! "новость"
 
 орын:ор%{y%}н N1 ; ! "место"
@@ -374,10 +385,20 @@ LEXICON ProperNouns
 
 Россия:Россия NP-TOP ; ! "Россия"
 Казахстан:Казахстан NP-TOP ; ! "Казахстан"
+Хакасия:Хакасия NP-TOP ; ! "Хакасия"
+Бишкек:Бишкек NP-TOP ; ! "Бишкек"
 
 Леонид:Леонид NP-ANT-M ; ! "Леонид"
 Руслан:Руслан NP-ANT-M ; ! "Руслан"
 Николай:Николай NP-ANT-M ; ! "Николай"
+Александр:Александр NP-ANT-M ; ! "Александр"
+Владимир:Владимир NP-ANT-M ; ! "Владимир"
+Василий:Василий NP-ANT-M ; ! "Василий"
+Сергей:Сергей NP-ANT-M ; ! "Сергей"
+
+Лариса:Лариса NP-ANT-F ; ! "Лариса"
+Юлия:Юлия NP-ANT-F ; ! "Юлия"
+Татьяна:Татьяна NP-ANT-F ; ! "Татьяна"
 
 LEXICON Adjectives 
 
