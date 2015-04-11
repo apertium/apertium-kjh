@@ -1,0 +1,31 @@
+Config:
+  hfst:
+      App: hfst-optimised-lookup
+      Gen: ../kjh.autogen.hfst
+      Morph: ../kjh.automorf.hfst
+
+Tests:
+
+ "Noun ат ":
+    ат<n><nom> : ат
+    ат<n><attr> : ат
+    ат<n><gen> : аттың
+    ат<n><dat> : атха
+    ат<n><acc> : атты
+    ат<n><loc> : атта
+    ат<n><abl> : аттаң
+    ат<n><all> : атсар
+    ат<n><ins> : атнаң
+    ат<n><prl> : атча
+    ат<n><cir> : аттаңар
+    ат<n><pl><nom> : аттар
+    ат<n><pl><gen> : аттарның
+    ат<n><pl><dat> : аттарға
+    ат<n><pl><acc> : аттарны
+    ат<n><pl><loc> : аттарда
+    ат<n><pl><abl> : аттардаң
+    ат<n><pl><all> : аттарзар
+    ат<n><pl><ins> : аттарнаң
+    ат<n><pl><prl> : аттаржа
+    ат<n><pl><cir> : аттардаңар
+

@@ -25,6 +25,8 @@ Multichar_Symbols
 %<abl%>           ! 
 %<all%>           ! 
 %<ins%>           ! 
+%<prl%>           ! 
+%<cir%>           ! 
 
 %<px1sg%>         !
 %<px2sg%>         !
@@ -111,7 +113,8 @@ CASES-COMMON ;
 %<abl%>:%>%{D%}%{A%}ң CLITICS-INCL-COP ;
 %<loc%>:%>%{D%}%{A%} CLITICS-INCL-COP ;
 %<all%>:%>%{Z%}%{A%}р CLITICS-INCL-COP ;
-!%<peq%>:%>%{J%}%{A%} CLITICS-INCL-COP ;
+%<prl%>:%>%{J%}%{A%} CLITICS-INCL-COP ;
+%<cir%>:%>%{D%}%{A%}ң%{A%}р CLITICS-INCL-COP ;
 
 LEXICON ATTR-SUBST
 

@@ -12,3 +12,4 @@
 /autogen.sh -text
 /configure.ac -text
 dev/countstems.sh -text
+tests/cases.yaml -text
