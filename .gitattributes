@@ -13,3 +13,4 @@
 /configure.ac -text
 dev/countstems.sh -text
 tests/cases.yaml -text
+tests/possessives.yaml -text

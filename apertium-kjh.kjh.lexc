@@ -245,6 +245,7 @@ PRON-DEM-PU ; ! "это"
 LEXICON Determiners 
 
 пу:пу DET-DEM ; ! "этот, эта, это"
+
 LEXICON Nouns 
 
 август:август N1 ; ! "август"

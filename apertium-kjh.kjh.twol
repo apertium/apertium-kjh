@@ -8,7 +8,7 @@ Alphabet
  %{D%}:д %{D%}:т
  %{N%}:н %{N%}:т
  %{Z%}:з %{Z%}:с
- %{G%}:г %{G%}:х %{G%}:ғ  ! %{G%}:0 
+ %{G%}:г %{G%}:х %{G%}:ғ %{G%}:0 
  %{J%}:ж %{J%}:ч
 
  %{A%}:а %{A%}:е
@@ -24,6 +24,10 @@ Alphabet
 
 Sets
 
+Vow = а э и о у 
+      я е ы ё ю 
+      ӧ ӱ ;
+
 Cns = б г ғ д ж з к л м н ң п р с т ф х ц ч ӌ ш щ 
       Б Г Ғ Д Ж З К Л М Н Ң П Р С Т Ф Х Ц Ч Ӌ Ш Щ
       %{L%} %{D%} %{N%} %{Z%} %{J%} ; 
@@ -32,6 +36,27 @@ UnvoicedCns = к т п с х ч ш ;
 
 
 Rules 
+
+!!! 
+
+"Deletion of {s} before consonant"
+%{s%}:0 <=> :Cns %>: _ ;
+
+"Insertion of {s} before vowel"
+%{s%}:з <=> :Vow %>: _ ;
+
+"Deletion of {n} in possessive"
+%{n%}:0 <=> _ .#. ; 
+
+!@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 
+
+"Insertion of {n} before vowel"
+%{n%}:н <=> _ %>: [ :Vow | %{N%}: ]  ;
+
+"Deletion of accusative {N} after {n}"
+%{N%}:0 <=> %{n%}: %>: _ %{I%}: .#. ;
+
+!@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 >:0 {N}:0 {I}:ы
 
 !!! Assimilation rules
 
@@ -57,7 +82,7 @@ Rules
 %{N%}:т <=> [ Cns - [ :н | :р ] ] %>: _ ; 
 
 "Nasal assimilation of {N}"
-%{N%}:н <=> [ [ :н | :р ] ] %>: _ ; 
+%{N%}:н <=> [ [ :н | :р ] - %{n%}: ] %>: _ ; 
 
 "Voiced assimilation of {L}"
 %{L%}:л <=> [ Cns - [ :н | :р ] - :UnvoicedCns ] %>: _ ; 
@@ -66,7 +91,7 @@ Rules
 %{L%}:т <=> :UnvoicedCns %>: _ ; 
 
 "Nasal assimilation of {L}"
-%{L%}:н <=> [ [ :н | :р ] ] %>: _ ; 
+%{L%}:н <=> [ :н | :р ] %>: _ ; 
 
 "Voiced assimilation of {G}"
 %{G%}:г <=> [ Cns - [ :н | :р ] - :UnvoicedCns ] %>: _ ; 
@@ -74,17 +99,23 @@ Rules
 "Unvoiced assimilation of {G}"
 %{G%}:х <=> :UnvoicedCns %>: _ ; 
 
+"Deletion of dative {G} after possessive"
+%{G%}:0 <=> %{I%}: %{n%}: %>: _ %{A%}: .#. ;
+
+!@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 >:0 {G}:0 {A}:а
+
 !!! Vowel harmony 
 
 "Vowel harmony for {A}"
 %{A%}:Vy <=> :Vx [ :Cns* :Cns ]/:0* _ ;
          where Vx in ( а э и о у я е ы ё ю )
-               Vy in ( а е е а а а е е а а )
+               Vy in ( а е е а а а е а а а )
          matched ;
 
 "Vowel harmony for {I}"
 %{I%}:Vy <=> :Vx [ :Cns* :Cns ]/:0* _ ;
          where Vx in ( а э и о у я е ы ё ю )
-               Vy in ( ы и и ы ы ы и и ы ы )
+               Vy in ( ы и и ы ы ы и ы ы ы )
          matched ;
 
+!@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 >:0 {N}:н {I}:ы ң
