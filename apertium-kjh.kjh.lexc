@@ -193,22 +193,22 @@ LEXICON V-IV
 
 LEXICON PRON-PERS-12SG 
 
-%<nom%>: # ; 
-%<gen%>:%>ің # ; 
-%<dat%>:%> # ; 
-%<acc%>:%>і # ; 
-%<loc%>:%>де # ; 
-%<abl%>:%>eң # ; 
-%<all%>:%>зер # ; 
-%<ins%>:%>нең # ; 
+%<nom%>:ин # ; 
+%<gen%>:инің # ; 
+%<dat%>:ағаа # ; 
+%<acc%>:ині # ; 
+%<loc%>:инде # ; 
+%<abl%>:инeң # ; 
+%<all%>:инзер # ; 
+%<ins%>:иннең # ; 
 
 LEXICON PRON-PERS-MIN
 
-%<prn%>%<pers%>%<p1%>%<sg%>: PRON-PERS-12SG ; 
+%<prn%>%<pers%>%<p1%>%<sg%>:м PRON-PERS-12SG ; 
 
 LEXICON PRON-PERS-SIN
 
-%<prn%>%<pers%>%<p2%>%<sg%>: PRON-PERS-12SG ; 
+%<prn%>%<pers%>%<p2%>%<sg%>:с PRON-PERS-12SG ; 
 
 LEXICON PRON-PERS-OL 
 
