@@ -82,6 +82,7 @@ LEXICON Root
 
 Pronouns ; 
 Determiners ; 
+Numerals ;
 Nouns ; 
 ProperNouns ;
 Adjectives ; 
@@ -173,6 +174,10 @@ LEXICON NP-ANT-F
 
 %<np%>%<ant%>%<f%>: # ;
 
+LEXICON NUM 
+
+%<num%>: # ;
+%<num%>%<subst%>: FULL-NOMINAL-INFLECTION ;
 
 LEXICON A1 
 
@@ -189,9 +194,9 @@ LEXICON V-IV
 LEXICON PRON-PERS-12SG 
 
 %<nom%>: # ; 
-%<gen%>:%>ниң # ; 
+%<gen%>:%>ің # ; 
 %<dat%>:%> # ; 
-%<acc%>:%>и # ; 
+%<acc%>:%>і # ; 
 %<loc%>:%>де # ; 
 %<abl%>:%>eң # ; 
 %<all%>:%>зер # ; 
@@ -245,6 +250,22 @@ PRON-DEM-PU ; ! "это"
 LEXICON Determiners 
 
 пу:пу DET-DEM ; ! "этот, эта, это"
+
+LEXICON Numerals 
+
+пір:пір NUM ; ! "один"
+ікі:ікі NUM ; ! "два"
+ӱс:ӱс NUM ; ! "три"
+тӧрт:тӧрт NUM ; ! "четыре"
+піс:піс NUM ; ! "пять"
+алды:алды NUM ; ! "шесть"
+
+сигіс:сигіс NUM ; ! "восем"
+тоғыс:тоғыс NUM ; ! "девет"
+он:он NUM ; ! ""
+
+миллион:миллион NUM ; ! ""
+миллиард:миллиард NUM ; ! ""
 
 LEXICON Nouns 
 
