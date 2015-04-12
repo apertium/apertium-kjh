@@ -4,20 +4,21 @@ Alphabet
  а б в г ғ д е ё ж з и й і к л м н ң о ӧ п р с т у ӱ ф х ц ч ӌ ш щ ъ ы ь э ю я
  А Б В Г Ғ Д Е Ё Ж З И Й І К Л М Н Ң О Ӧ П Р С Т У Ӱ Ф Х Ц Ч Ӌ Ш Щ Ъ Ы Ь Э Ю Я
 
- %{L%}:л %{L%}:т %{L%}:н
- %{D%}:д %{D%}:т
- %{N%}:н %{N%}:т
- %{Z%}:з %{Z%}:с
- %{G%}:г %{G%}:х %{G%}:ғ %{G%}:0 
- %{J%}:ж %{J%}:ч
+ %{L%}:л ! %{L%}:т %{L%}:н
+ %{D%}:д ! %{D%}:т
+ %{N%}:н ! %{N%}:т
+ %{S%}:с ! %{S%}:з
+ %{G%}:г ! %{G%}:х %{G%}:ғ %{G%}:0 
+ %{J%}:ҷ ! %{J%}:ч
 
  %{A%}:а %{A%}:е
- %{I%}:ы %{I%}:и %{I%}:і
+ %{I%}:ы ! %{I%}:и %{I%}:і
 
  %{s%}:0 %{s%}:з 
  %{n%}:0 %{n%}:н 
  %{y%}:0 %{y%}:ы %{y%}:и 
 
+ %{☭%}:0
  %>:0 
 
  ;
@@ -30,9 +31,13 @@ Vow = а э и о у
 
 Cns = б г ғ д ж з к л м н ң п р с т ф х ц ч ӌ ш щ 
       Б Г Ғ Д Ж З К Л М Н Ң П Р С Т Ф Х Ц Ч Ӌ Ш Щ
-      %{L%} %{D%} %{N%} %{Z%} %{J%} ; 
+      %{L%} %{D%} %{N%} %{S%} %{J%} ; 
 
-UnvoicedCns = к т п с х ч ш ;
+!UnvoicedCns = к т п с х ч ш ;
+
+VoicelessCns = к т п с х ч ш ; 
+
+VoicelessCnsRus = б в д ж г ;
 
 
 Rules 
@@ -50,72 +55,88 @@ Rules
 
 !@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 
 
+
+!!!== Morphological stuff ==!!!
+
 "Insertion of {n} before vowel"
 %{n%}:н <=> _ %>: [ :Vow | %{N%}: ]  ;
 
 "Deletion of accusative {N} after {n}"
 %{N%}:0 <=> %{n%}: %>: _ %{I%}: .#. ;
-
 !@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 >:0 {N}:0 {I}:ы
-
-!!! Assimilation rules
-
-"Unvoiced assimilation of {D}"
-%{D%}:т <=> [ :т ] %>: _ ; 
-
-"Voicing assimilation of {D}"
-%{D%}:д <=> [ :Cns - :т ] %>: _ ; 
-
-"Unvoiced assimilation of {J}"
-%{J%}:ч <=> [ :т ] %>: _ ; 
-
-"Voicing assimilation of {J}"
-%{J%}:ж <=> [ :Cns - :т ] %>: _ ; 
-
-"Unvoiced assimilation of {Z}"
-%{Z%}:с <=> [ :т ] %>: _ ; 
-
-"Voicing assimilation of {Z}"
-%{Z%}:з <=> [ :Cns - :т ] %>: _ ; 
-
-"Unvoiced assimilation of {N}"
-%{N%}:т <=> [ Cns - [ :н | :р ] ] %>: _ ; 
-
-"Nasal assimilation of {N}"
-%{N%}:н <=> [ [ :н | :р ] - %{n%}: ] %>: _ ; 
-
-"Voiced assimilation of {L}"
-%{L%}:л <=> [ Cns - [ :н | :р ] - :UnvoicedCns ] %>: _ ; 
-
-"Unvoiced assimilation of {L}"
-%{L%}:т <=> :UnvoicedCns %>: _ ; 
-
-"Nasal assimilation of {L}"
-%{L%}:н <=> [ :н | :р ] %>: _ ; 
-
-"Voiced assimilation of {G}"
-%{G%}:г <=> [ Cns - [ :н | :р ] - :UnvoicedCns ] %>: _ ; 
-
-"Unvoiced assimilation of {G}"
-%{G%}:х <=> :UnvoicedCns %>: _ ; 
 
 "Deletion of dative {G} after possessive"
 %{G%}:0 <=> %{I%}: %{n%}: %>: _ %{A%}: .#. ;
 
-!@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 >:0 {G}:0 {A}:а
 
-!!! Vowel harmony 
+!!!== Progressive assimilation ==!!!
+
+"Assimilation after voiceless consonants"
+Cx:Cy <=> :VoicelessCns/:0 _ ;
+          [ :VoicelessCnsRus %{☭%}:0 ]/[ :0 - %{☭%}: ] _ ;
+      except
+          %{n%}: %>: _ %{I%}: .#. ;
+      where Cx in ( %{D%} %{J%} %{L%} %{N%} %{B%} %{G%} )
+            Cy in (   т     ч     т     т     п     х   )
+      matched ;
+
+!!!== Vowel harmony ==!!!
 
 "Vowel harmony for {A}"
 %{A%}:Vy <=> :Vx [ :Cns* :Cns ]/:0* _ ;
-         where Vx in ( а э и о у я е ы ё ю )
-               Vy in ( а е е а а а е а а а )
+         where Vx in ( і ӱ и е э ӧ а о ы у я ё ю )
+               Vy in ( е е е е е е а а а а а а а )
          matched ;
 
 "Vowel harmony for {I}"
 %{I%}:Vy <=> :Vx [ :Cns* :Cns ]/:0* _ ;
-         where Vx in ( а э и о у я е ы ё ю )
-               Vy in ( ы и и ы ы ы и ы ы ы )
+         where Vx in ( і ӱ и е э ӧ а о ы у я ё ю )
+               Vy in ( і і і і і і ы ы ы ы ы ы ы )
          matched ;
 
+
 !@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 >:0 {N}:н {I}:ы ң
+!!! Assimilation rules
+
+!"Unvoiced assimilation of {D}"
+!%{D%}:т <=> [ :т ] %>: _ ; 
+!
+!"Voicing assimilation of {D}"
+!%{D%}:д <=> [ :Cns - :т ] %>: _ ; 
+!
+!"Unvoiced assimilation of {J}"
+!%{J%}:ч <=> [ :т ] %>: _ ; 
+!
+!"Voicing assimilation of {J}"
+!%{J%}:ж <=> [ :Cns - :т ] %>: _ ; 
+!
+!"Unvoiced assimilation of {Z}"
+!%{Z%}:с <=> [ :т ] %>: _ ; 
+!
+!"Voicing assimilation of {Z}"
+!%{Z%}:з <=> [ :Cns - :т ] %>: _ ; 
+!
+!"Unvoiced assimilation of {N}"
+!%{N%}:т <=> [ Cns - [ :н | :р ] ] %>: _ ; 
+!
+!"Nasal assimilation of {N}"
+!%{N%}:н <=> [ [ :н | :р ] - %{n%}: ] %>: _ ; 
+!
+!"Voiced assimilation of {L}"
+!%{L%}:л <=> [ Cns - [ :н | :р ] - :UnvoicedCns ] %>: _ ; 
+!
+!"Unvoiced assimilation of {L}"
+!%{L%}:т <=> :UnvoicedCns %>: _ ; 
+!
+!"Nasal assimilation of {L}"
+!%{L%}:н <=> [ :н | :р ] %>: _ ; 
+!
+!"Voiced assimilation of {G}"
+!%{G%}:г <=> [ Cns - [ :н | :р ] - :UnvoicedCns ] %>: _ ; 
+!
+!"Unvoiced assimilation of {G}"
+!%{G%}:х <=> :UnvoicedCns %>: _ ; 
+
+!@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 >:0 {G}:0 {A}:а
+
+
