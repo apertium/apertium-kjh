@@ -41,6 +41,13 @@ Multichar_Symbols
 %<iv%>            !
 %<tv%>            !
 
+%<past%>          !
+%<pres%>          !
+%<fut%>           !
+
+%<gna%>           !
+%<gna_cnd%>       !
+
 %<attr%>          !
 %<subst%>         !
 
@@ -194,9 +201,42 @@ LEXICON A4
 
 %<adj%>: # ; 
 
+LEXICON V-PERS-FUT
+
+%<p1%>%<sg%>:%>%{B%}%{I%}н # ;
+%<p2%>%<sg%>:%>%{S%}%{I%}ң # ;
+%<p3%>%<sg%>: # ;
+%<p1%>%<pl%>:%>%{B%}%{I%}с # ;
+%<p2%>%<pl%>:%>%{S%}%{A%}р # ;
+%<p3%>%<pl%>:%>%{L%}%{A%}р # ;
+
+LEXICON V-FINITE
+
+%<past%>:%{G%}%{A%}н # ;
+%<pres%>:%{J%}%{A%} # ;
+
+%<fut%>:%{A%}р V-PERS-FUT ;
+%<neg%>%<fut%>:%{B%}%{A%}с V-PERS-FUT ;
+
+LEXICON V-NONFINITE
+
+%<gna%>:%{I%}п # ;
+%<gna_cnd%>:%{S%}%{A%} # ;
+
+
+LEXICON V-COMMON
+
+V-FINITE ;
+V-NONFINITE ;
+
 LEXICON V-IV 
 
-%<v%>%<iv%>: # ; 
+%<v%>%<iv%>: V-COMMON ; 
+
+LEXICON V-TV
+
+%<v%>%<tv%>: V-COMMON ; 
+
 
 LEXICON PRON-PERS-12SG 
 
@@ -211,11 +251,11 @@ LEXICON PRON-PERS-12SG
 
 LEXICON PRON-PERS-MIN
 
-%<prn%>%<pers%>%<p1%>%<sg%>:м PRON-PERS-12SG ; 
+%<prn%>%<pers%>%<p1%>%<sg%>: PRON-PERS-12SG ; 
 
 LEXICON PRON-PERS-SIN
 
-%<prn%>%<pers%>%<p2%>%<sg%>:с PRON-PERS-12SG ; 
+%<prn%>%<pers%>%<p2%>%<sg%>: PRON-PERS-12SG ; 
 
 LEXICON PRON-PERS-OL 
 
@@ -272,8 +312,8 @@ LEXICON DET-DEM
 
 LEXICON Pronouns 
 
-мин:мин PRON-PERS-MIN ; ! "я"
-син:син PRON-PERS-MIN ; ! "ты"
+мин:м PRON-PERS-MIN ; ! "я"
+син:с PRON-PERS-SIN ; ! "ты"
 PRON-PERS-OL ; ! "он, она, оно"
 
 піс:піс PRON-PERS-PIS ;
@@ -620,12 +660,22 @@ LEXICON ProperNouns
 LEXICON Adjectives 
 
 чох:чох A4 ; ! "нет"
+пар:пар A4 ; ! "есть"
+кирек:кирек A4 ; ! ""
 
 хара:хара A1 ; ! "черный"
+чахсы:чахсы A1 ; ! "хороший"
 
 LEXICON Verbs 
 
 пол:пол V-IV ; ! "быть"
+ал:ал V-TV ; ! "брать"
+кил:кил V-IV ; ! ""
+пир:пир V-TV ; ! "дать"
+бар:бар V-IV ; ! ""
+сал:сал V-TV ; ! ""
+пас:пас V-IV ; ! ""
+іс:іс V-IV ; ! "пить"
 
 LEXICON Punctuation 
 
