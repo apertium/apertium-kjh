@@ -5,6 +5,7 @@
 
 Multichar_Symbols
 
+!! parts of speech
 %<n%>             ! Имя существительное
 %<np%>            !
 %<prn%>           !
@@ -13,10 +14,11 @@ Multichar_Symbols
 %<adj%>           !
 %<v%>             !
 
-
+!! numbers
 %<sg%>            !
 %<pl%>            !
 
+!! cases
 %<nom%>           ! Именительный падеж
 %<acc%>           ! Винительный падеж
 %<gen%>           ! 
@@ -28,32 +30,40 @@ Multichar_Symbols
 %<prl%>           ! 
 %<cir%>           ! 
 
+!! possessives
 %<px1sg%>         !
 %<px2sg%>         !
 %<px3sp%>         !
 %<px1pl%>         !
 %<px2pl%>         !
 
+!! persons
 %<p1%>            !
 %<p2%>            !
 %<p3%>            !
 
+!! types of verbs
 %<iv%>            !
 %<tv%>            !
 
+!! tenses
 %<past%>          !
 %<pres%>          !
 %<fut%>           !
 
+!! non-finite verb types
 %<gna%>           !
 %<gna_cnd%>       !
 
 %<attr%>          !
 %<subst%>         !
 
+!! types of pronouns
 %<pers%>          !
 %<dem%>           !
+%<ref%>           !
 
+!! types of np
 %<top%>           !
 %<ant%>           !
 
@@ -237,6 +247,17 @@ LEXICON V-TV
 
 %<v%>%<tv%>: V-COMMON ; 
 
+LEXICON PRON-REF-PERS
+
+!FIXME: more person endings
+!FIXME: what comes after these?
+%<px1sg%>:%>%{I%}м # ;
+%<px2sg%>:%>%{I%}ң # ;
+%<px3sp%>:%>%{s%}%{I%}%{n%} # ;
+
+LEXICON PRON-REF
+
+%<prn%>%<ref%>: PRON-REF-PERS ;
 
 LEXICON PRON-PERS-12SG 
 
@@ -321,6 +342,9 @@ PRON-PERS-OL ; ! "он, она, оно"
 олар:олар PRON-PERS-OLAR ;
 
 PRON-DEM-PU ; ! "это"
+
+пос:пос PRON-REF ; ! "self"
+
 
 LEXICON Determiners 
 
