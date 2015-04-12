@@ -82,6 +82,7 @@ Cx:Cy <=> :Vow/:0 _ %>: :Vow/:0 ;
             Cy in ( б д з ж )
       matched ;
 
+
 !!!== Morphological stuff ==!!!
 
 "Insertion of {n} before vowel"
@@ -132,7 +133,7 @@ Cx:Cy <=> :VoicelessCns/:0 _ ;
         except 
             %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
 
-"Deletion of {G} after short vowels"
+"Deletion of {G} after short vowels except ӧ"
 %{G%}:0 <=> [ :Vow - :ӧ ]/:0 _ ;
         except 
             [ :Vow :Vow ]/:0 _ ;
@@ -147,6 +148,13 @@ Cx:Cy <=> :VoicelessCns/:0 _ ;
 !      where Vx in ( і ӱ и е э ӧ а о ы у я ё ю )
 !            Vy in ( е е е е е е а а а а а а а )
 !      matched ;
+"Short vowel except ӧ to а/е before {G}{A}"
+Vx:Vy <=> _ [ %>: %{G%}:0 %{A%}: ]/:0 ;
+      except 
+          :Vow/:0 _ ;
+      where Vx in ( і ӱ и о ы у ю )
+            Vy in ( е е е а а а я )
+      matched ;
 
 "Delete {S} when too many ‹с›s" ! FIXME: probably other stuff too, like стс?
 %{S%}:0 <=> [ :с :с ]/:0 _ ;
@@ -156,6 +164,7 @@ Cx:Cy <=> :VoicelessCns/:0 _ ;
 
 "Vowel harmony for {A}"
 %{A%}:Vy <=> :Vx [ :Cns* :Cns ]/:0* _ ;
+             Vx: [ %>: %{G%}:0 ]/:0* _ ; ! for dative case where {G} deletes
          where Vx in ( і ӱ и е э ӧ а о ы у я ё ю )
                Vy in ( е е е е е е а а а а а а а )
          matched ;
