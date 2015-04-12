@@ -39,6 +39,24 @@ VoicelessCns = к т п с х ч ш ;
 
 VoicelessCnsRus = б в д ж г ;
 
+VcdDorsalCns = г ғ ң
+               Г Ғ Ң ;
+
+VcdCns = р л м н ң г ғ
+         Р Л М Н Ң Г Ғ ;
+
+Nasal = м н ң
+        М Н Ң ;
+
+BackVow = а о ы у я ё ю
+          А О Ы У Я Ё Ю ;
+
+FrontVow = і и ӱ е э ӧ
+           І И Ӱ Е Э Ӧ ;
+
+RealVow = і и ӱ е э ӧ а о ы у 
+          І И Ӱ Е Э Ӧ А О Ы У ;
+
 
 Rules 
 
@@ -76,9 +94,55 @@ Cx:Cy <=> :VoicelessCns/:0 _ ;
           [ :VoicelessCnsRus %{☭%}:0 ]/[ :0 - %{☭%}: ] _ ;
       except
           %{n%}: %>: _ %{I%}: .#. ;
-      where Cx in ( %{D%} %{J%} %{L%} %{N%} %{B%} %{G%} )
-            Cy in (   т     ч     т     т     п     х   )
+      where Cx in ( %{D%} %{J%} %{L%} %{N%} %{B%} )
+            Cy in (   т     ч     т     т     п   )
       matched ;
+
+"Voicing of {S}"
+%{S%}:з <=> [ :VcdCns | :Vow ]/:0 _ ;
+
+"Front devoicing of {G}"
+%{G%}:к <=> [ :FrontVow :Cns* :VoicelessCns ]/:0 _ ;
+            [ :FrontVow :Cns* :VoicelessCnsRus %{☭%}:0 ]/[ :0 - %{☭%}: ] _ ;
+ 
+
+"Back devoicing of {G}"
+%{G%}:х <=> [ :BackVow :Cns* :VoicelessCns ]/:0 _ ;
+            [ :BackVow :Cns* :VoicelessCnsRus %{☭%}:0 ]/[ :0 - %{☭%}: ] _ ;
+
+"Back voicing of {G}"
+%{G%}:ғ <=> [ :BackVow :Cns* [ :VcdCns - :VcdDorsalCns ] ]/:0 _ ;
+            [ :Vow :BackVow ]/:0 _ ;
+        except
+            %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
+
+
+!!!== Deletion ==!!!
+
+"Deletion of {G}"
+%{G%}:0 <=> :VcdDorsalCns/[ :0 - %{☭%}: ] _ ;  ! after voiced dorsal consonants
+        except 
+            %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
+
+"Deletion of {G} after short vowels"
+%{G%}:0 <=> [ :Vow - :ӧ ]/:0 _ ;
+        except 
+            [ :Vow :Vow ]/:0 _ ;
+            %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
+
+!FIXME: this currently breaks stuff, but I don't see another straightforward way to do this
+!"Short vowel to а/е before {G}{A}"
+!Vx:Vy <=> _ %>: %{G%}:0 %{A%}: ;
+!      except 
+!          [ :Vow :Vow ]/:0 _ ;
+!          :ӧ/:0 _ ;
+!      where Vx in ( і ӱ и е э ӧ а о ы у я ё ю )
+!            Vy in ( е е е е е е а а а а а а а )
+!      matched ;
+
+"Delete {S} when too many ‹с›s" ! FIXME: probably other stuff too, like стс?
+%{S%}:0 <=> [ :с :с ]/:0 _ ;
+
 
 !!!== Vowel harmony ==!!!
 
@@ -93,6 +157,13 @@ Cx:Cy <=> :VoicelessCns/:0 _ ;
          where Vx in ( і ӱ и е э ӧ а о ы у я ё ю )
                Vy in ( і і і і і і ы ы ы ы ы ы ы )
          matched ;
+
+
+
+!!!== Consonant harmony ==!!!
+
+"{D} nasal harmony"
+%{D%}:н <=> :Nasal/:0 _ [ :Vow :Nasal ]/:0 ;
 
 
 !@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 >:0 {N}:н {I}:ы ң
