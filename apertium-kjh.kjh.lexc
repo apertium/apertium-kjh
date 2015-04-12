@@ -233,6 +233,29 @@ LEXICON PRON-DEM-PU
 пу%<prn%>%<dem%>%<all%>:мындар # ;  ! Dir/LR
 пу%<prn%>%<dem%>%<ins%>:мынынаң # ; 
 
+LEXICON PRON-PERS-PL
+
+%<nom%>: # ;
+%<gen%>:%{N%}%{I%}ң # ; 
+%<dat%>:%{G%}%{A%} # ; 
+%<acc%>:%{N%}%{I%} # ; 
+%<loc%>:%{D%}%{A%} # ; 
+%<abl%>:%{D%}%{A%}ң # ; 
+%<all%>:%{S%}%{A%}р # ; 
+%<ins%>:%{N%}%{A%}ң # ; 
+
+LEXICON PRON-PERS-PIS
+
+%<prn%>%<pers%>%<p1%>%<pl%>: PRON-PERS-PL ;
+
+LEXICON PRON-PERS-SIRER
+
+%<prn%>%<pers%>%<p2%>%<pl%>: PRON-PERS-PL ;
+
+LEXICON PRON-PERS-OLAR
+
+%<prn%>%<pers%>%<p3%>%<pl%>: PRON-PERS-PL ;
+
 LEXICON DET-DEM
 
 %<det%>%<dem%>: # ;
@@ -244,6 +267,10 @@ LEXICON Pronouns
 мин:мин PRON-PERS-MIN ; ! "я"
 син:син PRON-PERS-MIN ; ! "ты"
 PRON-PERS-OL ; ! "он, она, оно"
+
+піс:піс PRON-PERS-PIS ;
+сірер:сірер PRON-PERS-SIRER ;
+олар:олар PRON-PERS-OLAR ;
 
 PRON-DEM-PU ; ! "это"
 
