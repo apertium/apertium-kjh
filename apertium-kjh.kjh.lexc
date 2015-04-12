@@ -139,7 +139,7 @@ LEXICON POSSESSIVES
 %<px1sg%>:%>%{I%}м CASES-ETC ;
 %<px2sg%>:%>%{I%}ң CASES-ETC ;
 %<px3sp%>:%>%{s%}%{I%}%{n%} CASES-ETC ;
-%<px1pl%>:%>%{I%}б%{I%}з CASES-ETC ;
+%<px1pl%>:%>%{I%}б%{I%}с CASES-ETC ;
 %<px2pl%>:%>%{I%}ң%{A%}р CASES-ETC ;
 
 LEXICON PLURAL

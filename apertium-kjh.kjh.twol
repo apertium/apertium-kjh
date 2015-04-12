@@ -60,7 +60,7 @@ RealVow = і и ӱ е э ӧ а о ы у
 
 Rules 
 
-!!! 
+!!! FIXME !!! 
 
 "Deletion of {s} before consonant"
 %{s%}:0 <=> :Cns %>: _ ;
@@ -73,6 +73,14 @@ Rules
 
 !@ а т >:0 {L}:т {A}:а р >:0 {s}:0 {I}:ы {n}:0 
 
+
+!!!== Lenition ==!!!
+
+"Intervocalic voicing at a morpheme boundary"
+Cx:Cy <=> :Vow/:0 _ %>: :Vow/:0 ;
+      where Cx in ( п т с ш )
+            Cy in ( б д з ж )
+      matched ;
 
 !!!== Morphological stuff ==!!!
 
