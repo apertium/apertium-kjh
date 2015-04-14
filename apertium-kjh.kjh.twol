@@ -87,9 +87,11 @@ Cx:Cy <=> :Vow/:0 _ %>: :Vow/:0 ;
 !!!== Morphological stuff ==!!!
 
 "Insertion of {n} before vowel"
-%{n%}:н <=> _ %>: [ :Vow | %{D%}: | %{N%}: ] ;
+%{n%}:н <=> _ %>: [ :Vow | %{D%}: | %{N%}: | %{S%}: ] ;
 
 !@ х ы р и >:0 {s}:0 {I}:ы {n}:н >:0 {D}:д {A}:а
+
+!@ г и м н а з и я {☭}:0 >:0 {s}:з {I}:ы {n}:н >:0 {S}:з {A}:а р
 
 "Deletion of accusative {N} after {n}"
 %{N%}:0 <=> %{n%}: %>: _ %{I%}: .#. ;
@@ -113,6 +115,8 @@ Cx:Cy <=> :VoicelessCns/:0 _ ;
 
 "Voicing of {S}"
 %{S%}:з <=> [ :VcdCns | :Vow ]/:0 _ ;
+
+!@ г и м н а з и я {☭}:0 >:0 {s}:з {I}:ы {n}:н >:0 {S}:з {A}:а р
 
 "Front devoicing of {G}"
 %{G%}:к <=> [ :FrontVow :RealCns* :VoicelessCns ]/:0 _ ;
