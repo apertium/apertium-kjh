@@ -126,6 +126,7 @@ Cx:Cy <=> :VoicelessCns/:0 _ ;
 "Back voicing of {G}"
 %{G%}:ғ <=> [ :BackVow :RealCns* [ :VcdCns - :VcdDorsalCns ] ]/:0 _ ;
             [ :Vow :BackVow ]/:0 _ ;
+            %>: :Cns :BackVow _ :BackVow  ; ! -DAGI = -дағы
         except
             %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
 
@@ -136,12 +137,14 @@ Cx:Cy <=> :VoicelessCns/:0 _ ;
 %{G%}:0 <=> :VcdDorsalCns/[ :0 - %{☭%}: ] _ ;  ! after voiced dorsal consonants
         except 
             %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
+                          %>: %{D%}: %{A%}: _ %{I%}:  ; ! avoid conflict with loc.attr
 
 "Deletion of {G} after short vowels except ӧ"
 %{G%}:0 <=> [ :Vow - :ӧ ]/:0 _ ;
         except 
             [ :Vow :Vow ]/:0 _ ;
             %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
+                          %>: %{D%}: %{A%}: _ %{I%}:  ; ! avoid conflict with loc.attr
 
 !FIXME: this currently breaks stuff, but I don't see another straightforward way to do this
 !"Short vowel to а/е before {G}{A}"
