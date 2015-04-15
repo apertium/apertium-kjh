@@ -19,3 +19,4 @@ speller/strings.default.txt -text
 speller/words.default.txt -text
 tests/cases.yaml -text
 tests/possessives.yaml -text
+tests/run-twol-pairtests.sh -text
