@@ -99,6 +99,8 @@ Cx:Cy <=> :Vow/:0 _ %>: :Vow/:0 ;
 
 "Deletion of dative {G} after possessive"
 %{G%}:0 <=> %{I%}: %{n%}: %>: _ %{A%}: .#. ;
+        except 
+              [ :Vow - :ӧ ]/:0 _ ; 
 
 !!!== Progressive assimilation ==!!!
 
@@ -137,6 +139,7 @@ Cx:Cy <=> :VoicelessCns/[:0 | ь ] _ ;
             %>: :Cns :BackVow _ :BackVow  ; ! -DAGI = -дағы
         except
             %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
+            [ :Vow - :ӧ ]/:0 _ ; 
 
 
 !!!== Deletion ==!!!
@@ -153,6 +156,8 @@ Cx:Cy <=> :VoicelessCns/[:0 | ь ] _ ;
             [ :Vow :Vow ]/:0 _ ;
             %{I%}: %{n%}: %>: _ %{A%}: .#. ; ! avoid confliect with px*.sg.dat
                           %>: %{D%}: %{A%}: _ %{I%}:  ; ! avoid conflict with loc.attr
+
+!@ а м н и с т и я {☭}:0 >:0 {G}:0 {A}:а
 
 !FIXME: this currently breaks stuff, but I don't see another straightforward way to do this
 !"Short vowel to а/е before {G}{A}"
