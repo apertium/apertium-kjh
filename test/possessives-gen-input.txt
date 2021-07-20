@@ -1,0 +1,6 @@
+# Noun ат 
+^ат<n><px1sg><nom>$
+^ат<n><px2sg><nom>$
+^ат<n><px3sp><nom>$
+^ат<n><px1pl><nom>$
+^ат<n><px2pl><nom>$

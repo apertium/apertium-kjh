@@ -1,0 +1,10 @@
+[3vauk0SRyYRi#0] ^адым/ат<n><px1sg><nom>$
+[/3vauk0SRyYRi]
+[CJ59IiDl4qAa#0] ^адыбыс/ат<n><px1pl><nom>$
+[/CJ59IiDl4qAa]
+[HgQ0V1BGLeGo#0] ^адың/ат<n><px2sg><nom>$
+[/HgQ0V1BGLeGo]
+[OMmVpUbpXm6k#0] ^адыңар/ат<n><px2pl><nom>$
+[/OMmVpUbpXm6k]
+[oL1hea66LREa#0] ^ады/ат<n><px3sp><nom>$
+[/oL1hea66LREa]

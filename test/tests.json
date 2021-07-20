@@ -1,0 +1,22 @@
+{
+    "cases": {
+        "input": "cases-input.txt",
+        "mode": "kjh-morph"
+    },
+    "cases-gen": {
+        "input": "cases-gen-input.txt",
+        "mode": "kjh-gener"
+    },
+    "possessives": {
+        "input": "possessives-input.txt",
+        "mode": "kjh-morph"
+    },
+    "possessives-gen": {
+        "input": "possessives-gen-input.txt",
+        "mode": "kjh-gener"
+    },
+    "twol": {
+        "input": null,
+        "command": "test/run-twol-pairtests.sh"
+    }
+}
